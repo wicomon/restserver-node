@@ -2,7 +2,7 @@ const { response, request } = require("express"); //redundante para q vscode rec
 
 
 const usuariosGet = (req = request, res = response) => {
-    const {q, nombre = 'no name', apikey, page = 1, limit = 10} = req.query;
+    const { q, nombre = 'no name', apikey, page = 1, limit = 10 } = req.query;
     res.json({
         msg: "Get api - controlador",
         q,
