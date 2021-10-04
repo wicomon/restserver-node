@@ -42,12 +42,14 @@
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
+        var url=(window.location.hostname.includes('localhost')) ? 'http://localhost:8081/api/auth/google': 'https://wcv-nodewebserverbasic.herokuapp.com/';
+
         function handleCredentialResponse(response) {
             // google token
 
             const body = { id_token: response.credential };
             // console.log(body);
-            fetch('http://localhost:8081/api/auth/google', {
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
