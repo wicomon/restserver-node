@@ -14,15 +14,18 @@ const router = Router();
 
 router.get('/', usuariosGet);
 
-router.post('/', [
-    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('password', 'El password debe contener mas de 6 letras').isLength({min:6}),
-    check('correo', 'El correo no es válido').isEmail(),
-    check('correo').custom(emailExiste),
-    // check('rol', 'No es un rol válido').isIn(['ADMIN_ROL', 'USER_ROL']),
-    check('rol').custom(esRoleValido), //lo mismo q .custom(rol => esRoleValido(rol)), funcion cuyo primer argumento es el mismo argumento q se envia, automanticamente el primer argumento se pasa al role
-    validarCampos
-] ,usuariosPost);
+router.post('/', 
+    [
+        check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+        check('password', 'El password debe contener mas de 6 letras').isLength({min:6}),
+        check('correo', 'El correo no es válido').isEmail(),
+        check('correo').custom(emailExiste),
+        // check('rol', 'No es un rol válido').isIn(['ADMIN_ROL', 'USER_ROL']),
+        check('rol').custom(esRoleValido), //lo mismo q .custom(rol => esRoleValido(rol)), funcion cuyo primer argumento es el mismo argumento q se envia, automanticamente el primer argumento se pasa al role
+        validarCampos
+    ] ,
+    usuariosPost
+);
 
 router.put('/:id', [
     check('id', 'No es un ID válido').isMongoId(),
