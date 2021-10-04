@@ -43,7 +43,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
         function handleCredentialResponse(response) {
-            var url=(window.location.hostname.includes('localhost')) ? 'http://localhost:8081/api/auth/google': 'https://wcv-nodewebserverbasic.herokuapp.com/';
+            var url=(window.location.hostname.includes('localhost')) ? 'http://localhost:8081/api/auth/google': 'https://wcv-nodewebserverbasic.herokuapp.com/api/auth/google';
             console.log(url);
             // google token
 
